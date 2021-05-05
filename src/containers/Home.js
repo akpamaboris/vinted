@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
-import Offer from "./Offer";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import logo from "../vinted-logo.png";
 import banner from "../vinted_banner.jpeg";
+
+import Header from "./Header.js";
 
 function Home() {
   const [data, setData] = useState();
@@ -29,13 +29,7 @@ function Home() {
     <span>En cours de chargement...</span>
   ) : (
     <div>
-      <header>
-        <img src={logo} alt="Logo of Vinted" />
-        <input type="text" />
-        <button>S'inscrire</button>
-        <button>Se connecter</button>
-        <button>Vends tes articles</button>
-      </header>
+      <Header />
       <div className="banner">
         <img src={banner} alt="banner of vinted" />
         <div className="text">
@@ -46,7 +40,7 @@ function Home() {
       <main>
         {data.offers.map((x, index) => {
           return (
-            <Link to="/offer" id={x.owner.account.username}>
+            <Link to={{ pathname: `/offer/${index}`, data: { data } }}>
               <div
                 key={index}
                 className="gallery-img"

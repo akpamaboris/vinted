@@ -1,13 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
 *,
 *:before,
 *:after {
   box-sizing: border-box;
 }
-
+body {
+  font-family: Roboto;
+}
 .container {
   margin-right: auto;
   margin-left: auto;
-  max-width: 1150px;
+  max-width: 1250px;
   padding-right: 5px;
   padding-left: 5px;
 }
@@ -17,15 +21,15 @@ Header {
   justify-content: space-around;
   margin-top: 15px;
   margin-bottom: 15px;
-
   align-items: center;
+  background-color: white;
+}
+Header button {
+  font-family: Roboto;
 }
 
 Header img {
   width: 120px;
-}
-
-.banner {
 }
 
 .banner img {
@@ -49,9 +53,7 @@ Header img {
 
 .banner .text button {
   margin-top: 40px;
-}
-
-.gallery-img {
+  font-family: Roboto;
 }
 
 .product {
@@ -70,4 +72,37 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.card-offer {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.card-offer button {
+  margin-top: 140px;
+  background-color: #00ccbc;
+
+  padding: 10px;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  border-radius: 7px;
+  width: 200px;
+}
+
+.card-prod {
+  padding: 20px;
+  background-color: lightgray;
+  width: 400px;
+}
+
+.card-prod div {
+  margin: 4px;
+  padding: 5px;
+}
+
+.card-prod div span {
+  color: grey;
 }

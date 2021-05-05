@@ -1,12 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-} from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
 
@@ -20,13 +12,6 @@ function App() {
   return (
     <Router>
       <div className="container">
-        {/* <h1>
-          <Link to="/">Home</Link>
-        </h1>
-        <h1>
-          <Link to="/offer">Offer</Link>
-        </h1> */}
-
         <Switch>
           <Route path="/offer/:id">
             <Offer />
