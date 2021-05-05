@@ -41,13 +41,16 @@ function Home() {
         {data.offers.map((x, index) => {
           return (
             <Link to={{ pathname: `/offer/${index}`, data: { data } }}>
-              <div
-                key={index}
-                className="gallery-img"
-                onClick={() => console.log(x)}
-              >
+              <div key={index} className="gallery-img">
                 <div className="product">
-                  {x.owner.account.username}
+                  <div className="bar-img-user">
+                    {x.owner.account.username}
+                    <img
+                      src={x.owner.account.avatar.secure_url}
+                      alt="user avatar"
+                      className="avatar-img"
+                    />
+                  </div>
                   <img
                     className="img-prod"
                     src={x.product_pictures[0].secure_url}
