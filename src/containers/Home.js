@@ -31,6 +31,7 @@ function Home() {
   ) : (
     <div>
       <Header />
+
       <div className="banner">
         <img src={banner} alt="banner of vinted" />
         <div className="text">
