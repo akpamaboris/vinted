@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-} from "react-router-dom";
+import Offer from "./Offer";
+import { Link, useParams } from "react-router-dom";
 
 import logo from "../vinted-logo.png";
 import banner from "../vinted_banner.jpeg";
@@ -51,7 +46,7 @@ function Home() {
       <main>
         {data.offers.map((x, index) => {
           return (
-            <Link to="/offer">
+            <Link to="/offer" id={x.owner.account.username}>
               <div
                 key={index}
                 className="gallery-img"

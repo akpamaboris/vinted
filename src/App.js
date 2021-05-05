@@ -1,4 +1,10 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -22,7 +28,7 @@ function App() {
         </h1> */}
 
         <Switch>
-          <Route path="/offer:id">
+          <Route path="/offer/:id">
             <Offer />
           </Route>
           <Route path="/">
