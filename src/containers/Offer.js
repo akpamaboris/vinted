@@ -1,42 +1,61 @@
 import { useParams, useLocation } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 //import components
 import Header from "./Header.js";
 
-function Offer({ name }) {
+function Offer() {
   const { id } = useParams();
   let location = useLocation();
   console.log(location);
-  console.log(location.data.data.offers[id].owner.account.username);
-
-  return (
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://lereacteur-vinted-api.herokuapp.com/offers"
+        );
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchData();
+  }, []);
+  return isLoading ? (
+    <span>En cours de chargement ...</span>
+  ) : (
     <div>
       <Header />
+
       <div className="card-offer">
         <div>
           <img
-            src={location.data.data.offers[id].product_image.secure_url}
+            src={data.offers[id].product_image.secure_url}
             alt="display the product"
           />
         </div>
         <div className="card-prod">
-          <div> {location.data.data.offers[id].product_price} €</div>
+          <div> {data.offers[id].product_price} €</div>
 
           <div>
             <span>MARQUE :</span>
-            {location.data.data.offers[id].product_details[0].MARQUE}
+            {data.offers[id].product_details[0].MARQUE}
           </div>
           <div>
             <span>COULEUR : </span>
-            {location.data.data.offers[id].product_details[2].COULEUR}
+            {data.offers[id].product_details[2].COULEUR}
           </div>
           <div>
             <span>EMPLACEMENT : </span>
-            {location.data.data.offers[id].product_details[3].EMPLACEMENT}
+            {data.offers[id].product_details[3].EMPLACEMENT}
           </div>
-          <div>{location.data.data.offers[id].product_description}</div>
-          <div>{location.data.data.offers[id].product_details[1].ÉTAT}</div>
-          <div> {location.data.data.offers[id].owner.account.username}</div>
+          <div>{data.offers[id].product_description}</div>
+          <div>{data.offers[id].product_details[1].ÉTAT}</div>
+          <div> {data.offers[id].owner.account.username}</div>
 
           <button>Acheter</button>
         </div>

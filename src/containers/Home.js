@@ -25,6 +25,7 @@ function Home() {
     };
     fetchData();
   }, []);
+
   return isLoading ? (
     <span>En cours de chargement...</span>
   ) : (

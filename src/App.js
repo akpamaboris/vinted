@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import "./App.css";
 
@@ -19,10 +19,19 @@ function App() {
           <Route path="/">
             <Home />
           </Route>
+          <Route component={NotFound}></Route>
         </Switch>
       </div>
     </Router>
   );
 }
 
+const NotFound = () => {
+  return (
+    <div>
+      <h1>404 - Not Found!</h1>
+      <Link to="/">Go Home</Link>
+    </div>
+  );
+};
 export default App;
