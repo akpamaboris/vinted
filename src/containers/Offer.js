@@ -1,14 +1,11 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 //import components
-import Header from "./Header.js";
 
 function Offer() {
   const { id } = useParams();
-  let location = useLocation();
-  console.log(location);
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -29,8 +26,6 @@ function Offer() {
     <span>En cours de chargement ...</span>
   ) : (
     <div>
-      <Header />
-
       <div className="card-offer">
         <div>
           <img

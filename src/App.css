@@ -119,3 +119,14 @@ main {
   width: 20px;
   height: 20px;
 }
+
+/* Css for register form */
+
+.form-register {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-main-register {
+  text-align: center;
+}

@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 
 import banner from "../vinted_banner.jpeg";
 
-import Header from "./Header.js";
-
 function Home() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -16,7 +14,6 @@ function Home() {
         const response = await axios.get(
           "https://lereacteur-vinted-api.herokuapp.com/offers"
         );
-        console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -30,8 +27,6 @@ function Home() {
     <span>En cours de chargement...</span>
   ) : (
     <div>
-      <Header />
-
       <div className="banner">
         <img src={banner} alt="banner of vinted" />
         <div className="text">
@@ -42,8 +37,11 @@ function Home() {
       <main>
         {data.offers.map((x, index) => {
           return (
-            <Link to={{ pathname: `/offer/${index}`, data: { data } }}>
-              <div key={index} className="gallery-img">
+            <Link
+              key={index}
+              to={{ pathname: `/offer/${index}`, data: { data } }}
+            >
+              <div className="gallery-img">
                 <div className="product">
                   <div className="bar-img-user">
                     {x.owner.account.username}
