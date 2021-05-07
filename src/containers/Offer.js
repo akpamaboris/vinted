@@ -37,12 +37,16 @@ function Offer() {
           <div> {data.offers[id].product_price} €</div>
 
           <div>
-            <span>MARQUE :</span>
-            {data.offers[id].product_details[0].MARQUE}
+            {data.offers[id].product_details[0].MARQUE ? (
+              <span>MARQUE : {data.offers[id].product_details[0].MARQUE}</span>
+            ) : null}
           </div>
           <div>
-            <span>COULEUR : </span>
-            {data.offers[id].product_details[2].COULEUR}
+            {data.offers[id].product_details[2].COULEUR ? (
+              <span>
+                COULEUR : {data.offers[id].product_details[2].COULEUR}{" "}
+              </span>
+            ) : null}
           </div>
           <div>
             <span>EMPLACEMENT : </span>
