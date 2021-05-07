@@ -1,11 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+
+  const [statusMessage, setStatusMessage] = useState("");
+
+  let history = useHistory();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = {
@@ -14,12 +20,20 @@ const Signup = () => {
       phone: phone,
       password: password,
     };
-    console.log(email, username, phone, password);
+    //   console.log(email, username, phone, password);
     axios
       .post("https://lereacteur-vinted-api.herokuapp.com/user/signup", form)
       .then((res) => {
-        console.log(res);
-        console.log(res.data);
+        setStatusMessage(
+          "Félicitations,vous voilà enregistrés🥳.Vous pouvez maintenant vous connecter."
+        );
+        setTimeout(() => {
+          history.push("/login");
+          window.location.reload(false);
+        }, 2000);
+      })
+      .catch(function (error) {
+        setStatusMessage("Désolé 😔l'email est déjà enregistré");
       });
 
     setEmail("");
@@ -38,6 +52,7 @@ const Signup = () => {
             name="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
+            autoComplete="on"
           />
         </label>
         <label htmlFor="username">
@@ -47,6 +62,7 @@ const Signup = () => {
             type="text"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
+            autoComplete="on"
           />
         </label>
         <label htmlFor="phone">
@@ -56,6 +72,7 @@ const Signup = () => {
             name="phone"
             value={phone}
             onChange={(event) => setPhone(event.target.value)}
+            autoComplete="on"
           />
         </label>
         <label htmlFor="password">
@@ -73,6 +90,9 @@ const Signup = () => {
           <input name="submit" type="submit" value="register" />
         </label>
       </form>
+      <div style={{ color: "blue", paddingTop: "20px", fontSize: "30px" }}>
+        {statusMessage ? statusMessage : null}
+      </div>
     </div>
   );
 };
