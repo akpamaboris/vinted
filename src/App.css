@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto;
+}
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1250px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+Header {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  align-items: center;
+  background-color: white;
+}
+Header button {
+  font-family: Roboto;
+}
+
+Header img {
+  width: 120px;
+}
+
+.banner img {
+  width: 100%;
+}
+
+.banner .text {
+  position: absolute;
+  z-index: 999;
+  margin: 0 auto;
+  left: 0;
+  right: 45%;
+  text-align: center;
+  top: 30%;
+  background-color: white;
+  width: 38%;
+  padding: 20px;
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.banner .text button {
+  margin-top: 40px;
+  font-family: Roboto;
+}
+
+.product {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.img-prod {
+  width: 220px;
+  height: 370px;
+  object-fit: cover;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-offer {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.card-offer button {
+  margin-top: 140px;
+  background-color: #00ccbc;
+
+  padding: 10px;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  border-radius: 7px;
+  width: 200px;
+}
+
+.card-prod {
+  padding: 20px;
+  background-color: lightgray;
+  width: 400px;
+}
+
+.card-prod div {
+  margin: 4px;
+  padding: 5px;
+}
+
+.card-prod div span {
+  color: grey;
+}
+
+.bar-img-user {
+  display: flex;
+}
+
+.bar-img-user img {
+  border-radius: 70%;
+  object-fit: cover;
+  margin-left: 40px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Css for register form */
+
+.form-register {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-main-register {
+  text-align: center;
+}
