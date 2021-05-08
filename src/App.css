@@ -131,3 +131,12 @@ main {
   text-align: center;
 }
 
+.Slider-Price{
+  margin:0 auto;
+}
+
+
+.pr-entre-txt{
+  position:relative;
+  left:340px;
+}

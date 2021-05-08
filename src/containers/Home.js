@@ -8,7 +8,7 @@ import styled from "styled-components";
 import banner from "../vinted_banner.jpeg";
 import React from "react";
 const StyledSlider = styled(ReactSlider)`
-  width: 50%;
+  width: 25%;
   height: 40px;
 `; // this handles the slider slider
 
@@ -66,10 +66,11 @@ function Home() {
     <span>En cours de chargement...</span>
   ) : (
     <div>
-      <div className="Slider-Space">
-        <br />
+      <div >
+      <span className="pr-entre-txt">Prix entre </span>
         <StyledSlider
           defaultValue={[sliderMinPrice, sliderMaxPrice]}
+          className="Slider-Price"
           renderTrack={Track}
           renderThumb={Thumb}
           onChange={(val) => {
