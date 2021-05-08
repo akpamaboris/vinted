@@ -8,7 +8,7 @@ import styled from "styled-components";
 import banner from "../vinted_banner.jpeg";
 import React from "react";
 const StyledSlider = styled(ReactSlider)`
-  width: 100%;
+  width: 50%;
   height: 40px;
 `; // this handles the slider slider
 
@@ -21,6 +21,8 @@ const StyledThumb = styled.div`
   color: #fff;
   border-radius: 50%;
   cursor: grab;
+  position:relative;
+  bottom:60px;
 `;
 
 //this handles the buttons
@@ -63,7 +65,9 @@ function Home() {
     <span>En cours de chargement...</span>
   ) : (
     <div>
-      <div>
+      <div className="Slider-Space">
+        <span>Prix entre :</span>
+        <br />
         <StyledSlider
           defaultValue={[sliderMinPrice, sliderMaxPrice]}
           renderTrack={Track}
