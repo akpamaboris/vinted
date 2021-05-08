@@ -2,21 +2,28 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
 import { Link } from "react-router-dom";
+
+//import React Slider andStyled Component
 import ReactSlider from "react-slider";
 import styled from "styled-components";
 
+//import the Vinted banner
 import banner from "../vinted_banner.jpeg";
 import React from "react";
+
+//import the Switch
+import Switch from "react-switch";
+
 const StyledSlider = styled(ReactSlider)`
   width: 25%;
-  height: 40px;
+  height: 15px;
 `; // this handles the slider slider
 
 const StyledThumb = styled.div`
-  height: 35px;
+  height: 25px;
   line-height: 25px;
-  width: 35px;
-  font-size:12px;
+  width: 25px;
+  font-size: 7px;
   text-align: center;
   background-color: #000;
   color: #fff;
@@ -47,13 +54,33 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [sliderMinPrice, setSliderMinPrice] = useState(20);
   const [sliderMaxPrice, setSliderMaxPrice] = useState(50);
+  const [checked, setChecked] = useState(false);
+  const handleChange = (nextChecked) => {
+    setChecked(nextChecked);
+    console.log("nextChecked", nextChecked);
+    if (nextChecked === true) {
+      data.sort(function (a, b) {
+        return b.product_price - a.product_price;
+      });
+      let cop_2 = [...data];
+      setData(cop_2);
+    }
+    if (nextChecked === false) {
+      data.sort(function (a, b) {
+        return a.product_price - b.product_price;
+      });
+      let cop_ = [...data];
+      setData(cop_);
+    }
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
           "https://lereacteur-vinted-api.herokuapp.com/offers"
         );
-        setData(response.data);
+        setData(response.data.offers);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -66,8 +93,49 @@ function Home() {
     <span>En cours de chargement...</span>
   ) : (
     <div>
-      <div >
-      <span className="pr-entre-txt">Prix entre </span>
+      <div>
+        <span>
+          Trier par prix
+          <Switch
+            onChange={handleChange}
+            checked={checked}
+            offColor="#08f"
+            onColor="#0ff"
+            offHandleColor="#0ff"
+            onHandleColor="#08f"
+            uncheckedIcon={
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                  fontSize: 15,
+                  color: "orange",
+                  paddingRight: 2,
+                }}
+              >
+                ⬆️
+              </div>
+            }
+            checkedIcon={
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                  fontSize: 15,
+                  color: "blue",
+                  paddingRight: 2,
+                }}
+              >
+                ⬇️
+              </div>
+            }
+          />
+        </span>
+        <span style={{ position: "relative", left: "240px" }}>Prix entre </span>
         <StyledSlider
           defaultValue={[sliderMinPrice, sliderMaxPrice]}
           className="Slider-Price"
@@ -89,7 +157,7 @@ function Home() {
         </div>
       </div>
       <main>
-        {data.offers.map((x, index) => {
+        {data.map((x, index) => {
           return x.product_price >= sliderMinPrice &&
             x.product_price <= sliderMaxPrice ? (
             <>
