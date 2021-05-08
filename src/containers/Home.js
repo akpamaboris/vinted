@@ -94,49 +94,50 @@ function Home() {
   ) : (
     <div>
       <div>
-        <span>
-          Trier par prix
-          <Switch
-            onChange={handleChange}
-            checked={checked}
-            offColor="#08f"
-            onColor="#0ff"
-            offHandleColor="#0ff"
-            onHandleColor="#08f"
-            uncheckedIcon={
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  height: "100%",
-                  fontSize: 15,
-                  color: "orange",
-                  paddingRight: 2,
-                }}
-              >
-                ⬆️
-              </div>
-            }
-            checkedIcon={
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  height: "100%",
-                  fontSize: 15,
-                  color: "blue",
-                  paddingRight: 2,
-                }}
-              >
-                ⬇️
-              </div>
-            }
-          />
-        </span>
         <div className="sl-price">
-          <span>Prix entre </span>
+          <span>Trier par prix</span>
+          <span>
+            <Switch
+              onChange={handleChange}
+              checked={checked}
+              offColor="#08f"
+              onColor="#0ff"
+              offHandleColor="#0ff"
+              onHandleColor="#08f"
+              uncheckedIcon={
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100%",
+                    fontSize: 15,
+                    color: "orange",
+                    paddingRight: 2,
+                  }}
+                >
+                  ⬆️
+                </div>
+              }
+              checkedIcon={
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100%",
+                    fontSize: 15,
+                    color: "blue",
+                    paddingRight: 2,
+                  }}
+                >
+                  ⬇️
+                </div>
+              }
+            />
+          </span>
+
+          <span className="pr-ent">Prix entre </span>
           <StyledSlider
             defaultValue={[sliderMinPrice, sliderMaxPrice]}
             className="Slider-Price"

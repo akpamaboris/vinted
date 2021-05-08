@@ -131,10 +131,6 @@ main {
   text-align: center;
 }
 
-.Slider-Price {
-  margin: 0 auto;
-}
-
 .pr-entre-txt {
   position: relative;
   left: 340px;
@@ -143,8 +139,14 @@ main {
 .sl-price {
   display: flex;
   align-items: center;
+  width: 70%;
+  padding: 20px;
 }
 
 .sl-price span {
-  margin-right: -200px;
+  margin-right: 30px;
+}
+
+.pr-ent {
+  margin-left: 100px;
 }
