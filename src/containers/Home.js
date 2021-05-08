@@ -135,19 +135,21 @@ function Home() {
             }
           />
         </span>
-        <span style={{ position: "relative", left: "240px" }}>Prix entre </span>
-        <StyledSlider
-          defaultValue={[sliderMinPrice, sliderMaxPrice]}
-          className="Slider-Price"
-          renderTrack={Track}
-          renderThumb={Thumb}
-          onChange={(val) => {
-            setSliderMinPrice(val[0]);
-            setSliderMaxPrice(val[1]);
-          }}
-          max="400"
-          min="1"
-        />
+        <div className="sl-price">
+          <span>Prix entre </span>
+          <StyledSlider
+            defaultValue={[sliderMinPrice, sliderMaxPrice]}
+            className="Slider-Price"
+            renderTrack={Track}
+            renderThumb={Thumb}
+            onChange={(val) => {
+              setSliderMinPrice(val[0]);
+              setSliderMaxPrice(val[1]);
+            }}
+            max="400"
+            min="1"
+          />
+        </div>
       </div>
       <div className="banner">
         <img src={banner} alt="banner of vinted" />
