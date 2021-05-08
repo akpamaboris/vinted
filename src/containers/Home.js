@@ -13,22 +13,23 @@ const StyledSlider = styled(ReactSlider)`
 `; // this handles the slider slider
 
 const StyledThumb = styled.div`
-  height: 25px;
+  height: 35px;
   line-height: 25px;
-  width: 25px;
+  width: 35px;
+  font-size:12px;
   text-align: center;
   background-color: #000;
   color: #fff;
   border-radius: 50%;
   cursor: grab;
-  position:relative;
-  bottom:60px;
+  position: relative;
+  bottom: 40px;
 `;
 
 //this handles the buttons
 
 const Thumb = (props, state) => (
-  <StyledThumb {...props}>{state.valueNow}</StyledThumb>
+  <StyledThumb {...props}>{`${state.valueNow} €`}</StyledThumb>
 );
 
 const StyledTrack = styled.div`
@@ -66,7 +67,6 @@ function Home() {
   ) : (
     <div>
       <div className="Slider-Space">
-        <span>Prix entre :</span>
         <br />
         <StyledSlider
           defaultValue={[sliderMinPrice, sliderMaxPrice]}
