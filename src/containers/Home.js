@@ -3,6 +3,9 @@ import axios from "axios";
 import "../App.css";
 import { Link } from "react-router-dom";
 
+//import image for user with no image
+import anonym from "../anonymous.png";
+
 //import React Slider andStyled Component
 import ReactSlider from "react-slider";
 import styled from "styled-components";
@@ -172,17 +175,21 @@ function Home() {
                   <div className="product">
                     <div className="bar-img-user">
                       {x.owner.account.username}
-                      <img
+                      {/* <img
                         src={x.owner.account.avatar.secure_url}
                         alt="user avatar"
                         className="avatar-img"
-                      />
+                      /> */}
                     </div>
-                    <img
-                      className="img-prod"
-                      src={x.product_pictures[0].secure_url}
-                      alt="product"
-                    />
+                    {x.owner.account.avatar ? (
+                      <img
+                        className="img-prod"
+                        src={x.product_pictures[0].secure_url}
+                        alt="product"
+                      />
+                    ) : (
+                      <img className="img-prod" src={anonym} alt="product" />
+                    )}
                     <span>{x.product_price} euros</span>
                   </div>
                 </div>

@@ -13,15 +13,19 @@ const Header = ({ userToken, setUser }) => {
       <header>
         <Link to="/">
           <img src={logo} alt="Logo of Vinted" />
-          <button
-            onClick={() => {
-              setUser(null);
-              Cookies.remove("tokenVinted");
-              setConnection(false);
-            }}
-          >
-            Log Out
-          </button>
+        </Link>
+
+        <button
+          onClick={() => {
+            setUser(null);
+            Cookies.remove("tokenVinted");
+            setConnection(false);
+          }}
+        >
+          Log Out
+        </button>
+        <Link to="/publish">
+          <button>Vends tes articles</button>
         </Link>
       </header>
     </div>
@@ -38,7 +42,9 @@ const Header = ({ userToken, setUser }) => {
         <Link to="/login">
           <button>Se connecter</button>
         </Link>
-        <button>Vends tes articles</button>
+        <Link to="/publish">
+          <button>Vends tes articles</button>
+        </Link>
       </header>
     </div>
   );

@@ -10,6 +10,7 @@ import "./App.css";
 import Home from "./containers/Home";
 import Offer from "./containers/Offer";
 import Header from "./containers/Header";
+import Publish from "./containers/Publish";
 
 //Import components end
 import Login from "./containers/Login";
@@ -34,6 +35,9 @@ function App() {
 
       <div className="container">
         <Switch>
+          <Route path="/publish">
+            <Publish userToken={userToken} setUser={setUser} />
+          </Route>
           <Route path="/login">
             <Login userToken={userToken} setUser={setUser} />
           </Route>

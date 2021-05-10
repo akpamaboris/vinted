@@ -150,3 +150,28 @@ main {
 .pr-ent {
   margin-left: 100px;
 }
+
+button,
+input[type="submit"] {
+  border: none;
+
+  outline: none;
+  padding: 10px;
+  margin: 5px;
+  background-color: #2baeb7;
+  color: white;
+}
+.form-pub {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 200px;
+}
+
+.form-pub label {
+  padding: 10px;
+}
+
+.form-pub label input[type="text"] {
+  margin-left: 80px;
+}
