@@ -160,6 +160,7 @@ function Home() {
         </div>
       </div>
       <main>
+        {console.log(data)}
         {data.map((x, index) => {
           return x.product_price >= sliderMinPrice &&
             x.product_price <= sliderMaxPrice ? (
@@ -179,20 +180,13 @@ function Home() {
                         className="avatar-img"
                       /> */}
                     </div>
-                    {x.owner.account.avatar ? (
-                      <img
-                        className="img-prod"
-                        src={x.product_pictures[0].secure_url}
-                        // data.offers[id].product_image.secure_url
-                        alt="product"
-                      />
-                    ) : (
-                      <img
-                        className="img-prod"
-                        src={x.product_image.secure_url}
-                        alt="product"
-                      />
-                    )}
+
+                    <img
+                      className="img-prod"
+                      src={x.product_image.secure_url}
+                      alt="product"
+                    />
+
                     <span>{x.product_price} euros</span>
                   </div>
                 </div>
