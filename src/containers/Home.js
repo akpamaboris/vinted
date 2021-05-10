@@ -3,9 +3,6 @@ import axios from "axios";
 import "../App.css";
 import { Link } from "react-router-dom";
 
-//import image for user with no image
-import anonym from "../anonymous.png";
-
 //import React Slider andStyled Component
 import ReactSlider from "react-slider";
 import styled from "styled-components";
@@ -171,6 +168,7 @@ function Home() {
                 key={index}
                 to={{ pathname: `/offer/${index}`, data: { data } }}
               >
+                {console.log(x)}
                 <div className="gallery-img">
                   <div className="product">
                     <div className="bar-img-user">
@@ -185,10 +183,15 @@ function Home() {
                       <img
                         className="img-prod"
                         src={x.product_pictures[0].secure_url}
+                        // data.offers[id].product_image.secure_url
                         alt="product"
                       />
                     ) : (
-                      <img className="img-prod" src={anonym} alt="product" />
+                      <img
+                        className="img-prod"
+                        src={x.product_image.secure_url}
+                        alt="product"
+                      />
                     )}
                     <span>{x.product_price} euros</span>
                   </div>

@@ -1,5 +1,6 @@
 import { Redirect } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 const Publish = ({ userToken, setUser }) => {
   const [title, setTitle] = useState("");
@@ -19,9 +20,35 @@ const Publish = ({ userToken, setUser }) => {
         onSubmit={async (event) => {
           event.preventDefault();
           const formData = new FormData();
-          formData.append("files", file);
+          formData.append("title", title);
+          formData.append("description", description);
+          formData.append("price", price);
+          formData.append("condition", condition);
+          formData.append("city", city);
+          formData.append("brand", brand);
+          formData.append("size", size);
+          formData.append("color", color);
+          formData.append("picture", file);
 
-          console.log(formData);
+          try {
+            const response = await axios.post(
+              "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+              formData,
+              {
+                headers: {
+                  Authorization: "Bearer " + userToken,
+                  "Content-Type": "multipart/form-data",
+                },
+              }
+            );
+            alert(JSON.stringify(response.data));
+          } catch (err) {
+            if (err.response.status === 500) {
+              console.error("An error occured");
+            } else {
+              console.error(err.response.data.msg);
+            }
+          }
         }}
         className="form-pub"
       >
