@@ -56,7 +56,7 @@ function Home() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [sliderMinPrice, setSliderMinPrice] = useState(20);
-  const [sliderMaxPrice, setSliderMaxPrice] = useState(50);
+  const [sliderMaxPrice, setSliderMaxPrice] = useState(200);
   const [checked, setChecked] = useState(false);
 
   const minSlider = 1;
@@ -64,7 +64,6 @@ function Home() {
 
   const handleChange = (nextChecked) => {
     setChecked(nextChecked);
-    console.log("nextChecked", nextChecked);
     if (nextChecked === true) {
       data.sort(function (a, b) {
         return b.product_price - a.product_price;
@@ -167,14 +166,27 @@ function Home() {
         </div>
       </div>
       <main>
-        {console.log(data)}
         {data.map((x, index) => {
           return x.product_price >= sliderMinPrice &&
             x.product_price <= sliderMaxPrice ? (
-            <>
-              <Link to={{ pathname: `/offer/${index}`, data: { data } }}>
-                {console.log(x)}
-                <div className="gallery-img" key={index}>
+            <React.Fragment key={index}>
+              <Link
+                to={{
+                  pathname: `/offer/${x._id}`,
+                  data: {
+                    img: x.product_image.secure_url,
+                    price: x.product_price,
+                    marque: x.product_details[0].MARQUE,
+                    place: x.product_details[3].EMPLACEMENT,
+                    username: x.owner.account.username,
+                    color: x.product_details[2].COULEUR,
+                    stateprod: x.product_details[1].ÉTAT,
+                    description: x.product_description,
+                    specUser: x,
+                  },
+                }}
+              >
+                <div className="gallery-img">
                   <div className="product">
                     <div className="bar-img-user">
                       <span>
@@ -213,7 +225,7 @@ function Home() {
                   </div>
                 </div>
               </Link>
-            </>
+            </React.Fragment>
           ) : null;
         })}
       </main>

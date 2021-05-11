@@ -219,3 +219,68 @@ a:active {
   text-decoration: none;
   color: inherit;
 }
+
+.card {
+  background-color: white;
+  padding: 10px 20px 11px;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #afafaf;
+  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.check {
+  background-color: white;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+.check div {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.button-check {
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  margin-top: 10px;
+}
+.container-check {
+  background-color: lightgrey;
+  padding: 30px;
+}
+
+.form-register label {
+  padding: 10px;
+  font-size: 20px;
+}
+.form-register {
+  margin-top: 160px;
+}
+
+.form-register label input {
+  margin-left: 95px;
+  margin: 0 auto;
+}
+
+.form-login {
+  margin: 0 auto;
+  margin-left: 0px;
+  margin-top: 100px;
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.form-login label {
+  padding: 20px;
+}
