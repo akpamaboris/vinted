@@ -204,8 +204,8 @@ function Home() {
                     <div className="price-bar">
                       <span>{x.product_price}</span> <span>€</span>
                     </div>
-                    <div>
-                      <span>{x.product_details[1].TALLE}</span>
+                    <div className="size-clothe">
+                      <span>{x.product_details[1].TAILLE}</span>
                     </div>
                     <div className="brand">
                       <span>{x.product_details[0].MARQUE}</span>

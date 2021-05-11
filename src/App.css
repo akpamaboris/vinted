@@ -192,10 +192,30 @@ input[type="submit"] {
   width: 200px;
   font-family: Noto Sans;
   font-weight: bold;
+  text-decoration: none;
+  margin-top: 10px;
 }
 .brand {
   font-family: Noto Sans;
   font-size: 12px;
   margin-top: 10px;
   width: 100px;
+  text-decoration: none;
+  color: grey;
+}
+
+.size-clothe {
+  width: 150px;
+  margin-top: 10px;
+
+  color: grey;
+  font-size: 12px;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
 }
