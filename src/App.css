@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
 
 *,
 *:before,
@@ -60,7 +61,9 @@ Header img {
   width: 20%;
   display: flex;
   flex-direction: column;
-  padding: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .img-prod {
@@ -97,6 +100,7 @@ main {
   padding: 20px;
   background-color: lightgray;
   width: 400px;
+  font-family: Noto Sans;
 }
 
 .card-prod div {
@@ -110,6 +114,12 @@ main {
 
 .bar-img-user {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: calc(250px - 60%);
+
+  font-family: Noto Sans;
+  margin-bottom: 10px;
 }
 
 .bar-img-user img {
@@ -174,4 +184,18 @@ input[type="submit"] {
 
 .form-pub label input[type="text"] {
   margin-left: 80px;
+}
+
+.price-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  font-family: Noto Sans;
+  font-weight: bold;
+}
+.brand {
+  font-family: Noto Sans;
+  font-size: 12px;
+  margin-top: 10px;
+  width: 100px;
 }

@@ -14,6 +14,9 @@ import React from "react";
 //import the Switch
 import Switch from "react-switch";
 
+//import anonyous image
+import anonymous from "../anonymous.png";
+
 const StyledSlider = styled(ReactSlider)`
   width: 25%;
   height: 15px;
@@ -55,6 +58,10 @@ function Home() {
   const [sliderMinPrice, setSliderMinPrice] = useState(20);
   const [sliderMaxPrice, setSliderMaxPrice] = useState(50);
   const [checked, setChecked] = useState(false);
+
+  const minSlider = 1;
+  const maxSlider = 400;
+
   const handleChange = (nextChecked) => {
     setChecked(nextChecked);
     console.log("nextChecked", nextChecked);
@@ -147,8 +154,8 @@ function Home() {
               setSliderMinPrice(val[0]);
               setSliderMaxPrice(val[1]);
             }}
-            max="400"
-            min="1"
+            max={maxSlider}
+            min={minSlider}
           />
         </div>
       </div>
@@ -165,20 +172,27 @@ function Home() {
           return x.product_price >= sliderMinPrice &&
             x.product_price <= sliderMaxPrice ? (
             <>
-              <Link
-                key={index}
-                to={{ pathname: `/offer/${index}`, data: { data } }}
-              >
+              <Link to={{ pathname: `/offer/${index}`, data: { data } }}>
                 {console.log(x)}
-                <div className="gallery-img">
+                <div className="gallery-img" key={index}>
                   <div className="product">
                     <div className="bar-img-user">
-                      {x.owner.account.username}
-                      {/* <img
-                        src={x.owner.account.avatar.secure_url}
-                        alt="user avatar"
-                        className="avatar-img"
-                      /> */}
+                      <span>
+                        {x.owner.account.avatar ? (
+                          <img
+                            src={x.owner.account.avatar.secure_url}
+                            alt="user avatar"
+                            className="avatar-img"
+                          />
+                        ) : (
+                          <img
+                            src={anonymous}
+                            alt="user avatar"
+                            className="avatar-img"
+                          />
+                        )}
+                      </span>
+                      <span>{x.owner.account.username}</span>
                     </div>
 
                     <img
@@ -187,7 +201,15 @@ function Home() {
                       alt="product"
                     />
 
-                    <span>{x.product_price} euros</span>
+                    <div className="price-bar">
+                      <span>{x.product_price}</span> <span>€</span>
+                    </div>
+                    <div>
+                      <span>{x.product_details[1].TALLE}</span>
+                    </div>
+                    <div className="brand">
+                      <span>{x.product_details[0].MARQUE}</span>
+                    </div>
                   </div>
                 </div>
               </Link>
